@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="stylesheet" href="/static/css/footer.css">
+    <link rel="stylesheet" href="/static/css/nav.css">
+
+    <link rel="stylesheet" href="path-to-your-owl-carousel-css/owl.carousel.min.css">
+    <link rel="stylesheet" href="path-to-your-owl-carousel-css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/static/css/tiles.css">
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <!-- ... Your existing head content ... -->
+    <script src="https://cdn.jsdelivr.net/npm/ol@v7.4.0/dist/ol.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.4.0/ol.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
+    <style>
+        #map {
+            height: 550px;
+            width: 750px;
+        }
+    </style>
+
+
+    <!--====== Bootstrap css ======-->
+    <!-- <link rel="stylesheet" href="/static/css/bootstrap.min.css" /> -->
+
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" href="/static/css/lineicons.css" />
+
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="/static/css/starter.css" />
+
+    <link rel="stylesheet" href="/static/css/about-01.css" />
+    <link rel="stylesheet" href="/static/css/upload.css" />
+
+
+    <!-- TEAM ASSET VENDOR JS -->
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/static/css/style1.css" rel="stylesheet">
+
+
+
+    <!-- Testimonials -->
+
+     <!-- Add Bootstrap CSS (You may customize the link if needed) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Add Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+        <style>
+            /* Style the dropdown content (hidden by default) */
+.dropdown .dropdown-content {
+display: none;
+position: absolute;
+background-color: #000000;
+min-width: 200px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+z-index: 1;
+}
+
+/* Style the dropdown links */
+.dropdown .dropdown-content a {
+padding: 12px 16px;
+text-decoration: none;
+display: block;
+color: black;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown .dropdown-content a:hover {
+background-color: #ddd;
+}
+
+/* Show the dropdown menu when hovering over the "Our Services" link */
+.dropdown:hover .dropdown-content {
+display: block;
+}
+
+</style>
+</head>
+
+<body>
+    <!-- Start Landing Page -->
+    <nav class="nav">
+        <div class="container" style="max-width: 1500px;">
+            <div class="logo">
+                <a href="/" class="logo">Atlantic Warriors</a>
+            </div>
+            <div id="mainListDiv" class="main_list">
+                <ul class="navlinks">
+                    <li><a href="/log_about">About Us</a></li>
+                    <li class="dropdown">
+                    <a href="/log_Services">Our Services</a>
+                        <div class="dropdown-content">
+                            <a href="/db">Database</a>
+                            <a href="/predict">Detect Plastic</a>
+                            <a href="/visualize">Visualize</a>
+                        </div></li>
+                    <li><a href="/log_Testimonials">Testimonials</a></li>
+                    <li><a href="/log_team">Our Team</a></li>
+                    <li><a href="/log_contact">Contact Us</a></li>
+                    <li><a href="/login_reg">Login Out</a></li>
+                    <!-- <li><a href="https://github.com/TheNobody-12/Plastic-Detection-Reva">Info</a></li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Jquery needed -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- <script src="js/scripts.js"></script> -->
+
+    <!-- Function used to shrink nav bar removing paddings and adding black background -->
+    <script>
+        $(document).ready(function () {
+            $('.navTrigger').click(function () {
+                $(this).toggleClass('active');
+                console.log("Clicked menu");
+                $("#mainListDiv").toggleClass("show_list");
+                $("#mainListDiv").fadeIn();
+            });
+
+            $(window).scroll(function () {
+                if ($(document).scrollTop() > 50) {
+                    $('.nav').addClass('affix');
+                    console.log("OK");
+                } else {
+                    $('.nav').removeClass('affix');
+                }
+            });
+        });
+
+    </script> <!-- End Landing Page -->
+
+<style>
+    .vis-container>p {
+        padding-left: 15%;
+        font-size: 20px;
+        font-weight: bold;
+    }
+</style> 
+<br><br><br><br>
+<style>
+    /* Nav */
+    .nav {
+       background-color: black;
+       padding: 0px;
+    }
+</style>
+
+<!-- Linechart -->
+<center>
+    <h1 style="margin: 40px 0px;">Data Visualization</h1>
+</center>
+
+<br><br>
+
+<div class="vis-container">
+
+    <p>Map Visualization</p>
+    <div style="width: 80%; height:30%; margin: auto;">
+        {{ mapbox_plot_div | safe }}
+    </div>
+    
+    <br><br><br><br>
+
+    <!-- bar -->
+
+    <p>Bar Chart</p>
+    <div style="width: 80%; height:30%; margin: auto;">
+        {{ bar_plot_div | safe }}
+    </div>
+
+
+
+</div>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<div class="space" style="height:200px"></div>
+<!-- footer -->
+
+    <style>
+        .footer {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 1rem;
+        }
+        .info-container {
+            padding: 20px;
+        }
+        
+        h4 {
+            color: #f0f0f0;
+            font-size: 15px;
+        }
+        
+        ul, li {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+           
+        }
+        
+        ul li a {
+            color: black;
+            font-size: 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        ul li a:hover {
+            color: #fff;
+        }
+        
+        h3 {
+            color: #f0f0f0;
+        }
+        
+        address {
+            font-style: normal;
+            font-size: 15px;
+            color: #030303;
+        }
+        
+        .social-links a {
+            color: #bbb;
+            text-decoration: none;
+            margin-right: 15px;
+            font-size: 24px;
+        }
+        
+        .social-links a:hover {
+            color: #fff;
+        }
+        
+    </style>
+
+    <footer id="Contact">
+        <div class="waves">
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div class="wave" id="wave3"></div>
+            <div class="wave" id="wave4"></div>
+        </div>
+        <div class="info-container">
+            <div class="row">
+                <div class="col-md-2">
+                    <center>
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li><a href="/dashboard">Home</a></li>
+                        <li><a href="/log_about">About us</a></li>
+                        <li><a href="/log_team">Team</a></li>
+                        <li><a href="/log_Services">Our Services</a></li>
+                    </ul>
+                </center>
+                </div>
+                <div class="col-md-6">
+                    <center>
+                    <h3>Atlantic Warriors</h3>
+                    <br>
+                    <p style="color:black;">
+                        Detect, Defend, Restore: Our Mission to Safeguard Nature from Plastic Menace.
+                    </p>
+                </center>
+                </div>
+                <div class="col-md-4">
+                <center>
+                    <h3>Contact Us</h3>
+                    <address>
+                        Knowledge Corridor<br>
+                        Raisan Village<br>
+                        Gandhinagar - 382007<br>
+                        <strong>Phone:</strong> +91 7923275300<br>
+                        <strong>Email:</strong> <a href="mailto:ITAdmin@pdpu.ac.in" style="color: #000000;">ITAdmin@pdpu.ac.in</a><br>
+                    </address>
+                </center>
+                </div>
+                <div class="social-links mt-3">
+                    <center>
+                    <a href="https://twitter.com/sotpdpu?t=gF7fEcV4X_oLUK5AaEEQVQ&s=09" target="_blank"
+                        class="twitter"><i class="bx bxl-twitter"></i></a>
+                    <a href="https://www.facebook.com/SOT-pdpu-205008306201226/" target="_blank" class="facebook"><i
+                            class="bx bxl-facebook"></i></a>
+                    <a href="https://www.instagram.com/pdeuofficial/?utm_medium=copy_link" target="_blank"
+                        class="instagram"><i class="bx bxl-instagram"></i></a>
+                    <a href="https://www.linkedin.com/school/education-pdpu" target="_blank" class="linkedin"><i
+                            class="bx bxl-linkedin"></i></a>
+                        </center>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+    <script>
+        (function () {
+            "use strict";
+
+            var carousels = function () {
+                $(".owl-carousel1").owlCarousel({
+                    loop: true,
+                    center: true,
+                    margin: 0,
+                    responsiveClass: true,
+                    nav: false,
+                    responsive: {
+                        0: {
+                            items: 1,
+                            nav: false
+                        },
+                        680: {
+                            items: 2,
+                            nav: false,
+                            loop: false
+                        },
+                        1000: {
+                            items: 3,
+                            nav: true
+                        }
+                    }
+                });
+            };
+
+            (function ($) {
+                carousels();
+            })(jQuery);
+        })();
+
+    </script>
+    <!-- Ionicons Script -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

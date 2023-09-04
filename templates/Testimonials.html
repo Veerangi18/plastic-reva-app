@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials Carousel</title>
+
+    <!-- Add Bootstrap CSS (You may customize the link if needed) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Add Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    ? <!-- Your custom CSS styles -->
+    <style>
+        .gtco-testimonials {
+            background-color: #f7f7f7;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            border-radius: 50%;
+            width: 100px;
+            height: 250px;
+            margin: 0 auto;
+        }
+
+        .card h5 {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .card span {
+            font-size: 14px;
+            color: #777;
+        }
+
+        .card p {
+            margin-top: 20px;
+        }
+
+        /* Customize Owl Carousel navigation buttons */
+        .owl-nav {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .owl-prev,
+        .owl-next {
+            background-color: #007BFF;
+            color: #fff;
+            font-size: 24px;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            position: relative;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .owl-prev:hover,
+        .owl-next:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gtco-testimonials">
+        <h2>Testimonials</h2>
+        <div class="owl-carousel owl-carousel1 owl-theme">
+            <div>
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5>Nainil Patel <br />
+                        </h5>
+                        <p class="card-text">“I'm blown away by the simplicity and accuracy of this tool. I uploaded a photo, and within seconds, it pinpointed the plastic objects. Incredible!” </p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5>Kaushal<br />
+                        </h5>
+                        <p class="card-text">“I'm a photographer, and I often capture images of beautiful landscapes. This website helps me make sure those landscapes stay pristine by identifying plastic pollution.” </p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5>Yash Mori<br />
+                        </h5>
+                        <p class="card-text">“ As a nature enthusiast, I appreciate technology that aligns with our environment. This website not only identifies plastic but also raises awareness. Kudos! ” </p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5>Kaxit Pandya<br />
+                        </h5>
+                        <p class="card-text">“I work in sustainability, and this tool complements our efforts perfectly. It's a fantastic resource for businesses aiming to reduce plastic in their operations.” </p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5>Sakshi Vaghela<br />
+                        </h5>
+                        <p class="card-text">“ In a world overloaded with technology, it's refreshing to see it used for such a critical cause. Keep up the excellent work” </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Add jQuery (required for Owl Carousel) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Add Bootstrap JS (required for Bootstrap components) -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Add Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+
+    <script>
+        (function () {
+            "use strict";
+
+            var carousels = function () {
+                $(".owl-carousel1").owlCarousel({
+                    loop: true,
+                    center: true,
+                    margin: 0,
+                    responsiveClass: true,
+                    nav: false,
+                    responsive: {
+                        0: {
+                            items: 1,
+                            nav: false
+                        },
+                        680: {
+                            items: 2,
+                            nav: false,
+                            loop: false
+                        },
+                        1000: {
+                            items: 3,
+                            nav: true
+                        }
+                    }
+                });
+            };
+
+            (function ($) {
+                carousels();
+            })(jQuery);
+        })();
+
+    </script>
+
+</body>
+
+</html>

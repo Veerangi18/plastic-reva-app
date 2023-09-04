@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Custom Location Map</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" 
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" 
+    crossorigin="" />
+
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" 
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" 
+    crossorigin=""></script>
+
+    <style>
+        #map { height: 550px; }
+    </style>
+</head>
+
+<body>
+    <h1>Custom Location Map</h1>
+
+    <label for="latitude">Latitude:</label>
+    <input type="text" id="latitude" placeholder="Enter latitude">
+    <br>
+    <label for="longitude">Longitude:</label>
+    <input type="text" id="longitude" placeholder="Enter longitude">
+    <br>
+    <button id="updateButton">Update Map</button>
+
+    <div id="map"></div>
+
+    <script>
+        const map = L.map('map'); 
+        // Initializes map
+
+        map.setView([51.505, -0.09], 13); 
+        // Sets initial coordinates and zoom level
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map); 
+        // Sets map data source and associates with map
+
+        let marker, circle, zoomed;
+
+        document.getElementById('updateButton').addEventListener('click', updateMap);
+
+        function updateMap() {
+            const latitude = parseFloat(document.getElementById('latitude').value);
+            const longitude = parseFloat(document.getElementById('longitude').value);
+
+            if (isNaN(latitude) || isNaN(longitude)) {
+                alert("Please enter valid latitude and longitude values.");
+                return;
+            }
+
+            if (marker) {
+                map.removeLayer(marker);
+                map.removeLayer(circle);
+            }
+
+            marker = L.marker([latitude, longitude]).addTo(map);
+            circle = L.circle([latitude, longitude], { radius: 20 }).addTo(map);
+
+            if (!zoomed) {
+                zoomed = map.fitBounds(circle.getBounds());
+            }
+
+            map.setView([latitude, longitude]);
+        }
+    </script>
+</body>
+</html>

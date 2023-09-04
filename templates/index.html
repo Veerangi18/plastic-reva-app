@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="stylesheet" href="/static/css/footer.css">
+    <link rel="stylesheet" href="/static/css/nav.css">
+
+    <link rel="stylesheet" href="path-to-your-owl-carousel-css/owl.carousel.min.css">
+    <link rel="stylesheet" href="path-to-your-owl-carousel-css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/static/css/tiles.css">
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <!-- ... Your existing head content ... -->
+    <script src="https://cdn.jsdelivr.net/npm/ol@v7.4.0/dist/ol.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.4.0/ol.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
+    <style>
+        #map {
+            height: 550px;
+            width: 750px;
+        }
+    </style>
+
+
+    <!--====== Bootstrap css ======-->
+    <!-- <link rel="stylesheet" href="/static/css/bootstrap.min.css" /> -->
+
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" href="/static/css/lineicons.css" />
+
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="/static/css/starter.css" />
+
+    <link rel="stylesheet" href="/static/css/about-01.css" />
+    <link rel="stylesheet" href="/static/css/upload.css" />
+
+
+    <!-- TEAM ASSET VENDOR JS -->
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/static/css/style1.css" rel="stylesheet">
+
+
+
+    <!-- Testimonials -->
+
+     <!-- Add Bootstrap CSS (You may customize the link if needed) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Add Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    <!-- Your custom CSS styles -->
+    <style>
+        .gtco-testimonials {
+            background-color: #f7f7f7;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            border-radius: 50%;
+            width: 100px;
+            height: 250px;
+            margin: 0 auto;
+        }
+
+        .card h5 {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .card span {
+            font-size: 14px;
+            color: #777;
+        }
+
+        .card p {
+            margin-top: 20px;
+        }
+
+        /* Customize Owl Carousel navigation buttons */
+        
+
+        .owl-prev,
+        .owl-next {
+            background-color: #007BFF;
+            color: #fff;
+            font-size: 24px;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            position: relative;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .owl-prev:hover,
+        .owl-next:hover {
+            background-color: #0056b3;
+        }
+
+        /* Style the dropdown content (hidden by default) */
+.dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #000000;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Style the dropdown links */
+.dropdown .dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    color: black;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown .dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown menu when hovering over the "Our Services" link */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+    </style>
+</head>
+
+<body>
+    <!-- Start Landing Page -->
+<nav class="nav" style="background-color: black; padding: 0px">
+    <div class="container" style="max-width: 1500px;">
+        <div class="logo">
+            <a href="/dashboard" class="logo">Atlantic Warriors</a>
+        </div>
+        <div id="mainListDiv" class="main_list">
+            <ul class="navlinks">
+                <li><a href="#AboutUs">About Us</a></li>
+                <li class="dropdown">
+                    <a href="#Services">Our Services</a>
+                    <div class="dropdown-content">
+                        <a href="/db">Database</a>
+                        <a href="/predict">Detect Plastic</a>
+                        <a href="/visualize">Visualize</a>
+                    </div>
+                </li>
+                <li><a href="#Testimonials">Testimonials</a></li>
+                <li><a href="#team">Our Team</a></li>
+                <li><a href="#Contact">Contact Us</a></li>
+                <li><a href="/login_reg">Log Out</a></li>
+                <!-- <li><a href="https://github.com/TheNobody-12/Plastic-Detection-Reva">Info</a></li> -->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    <!-- Jquery needed -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- <script src="js/scripts.js"></script> -->
+
+    <!-- Function used to shrink nav bar removing paddings and adding black background -->
+    <script>
+        $(document).ready(function () {
+            $('.navTrigger').click(function () {
+                $(this).toggleClass('active');
+                console.log("Clicked menu");
+                $("#mainListDiv").toggleClass("show_list");
+                $("#mainListDiv").fadeIn();
+            });
+
+            $(window).scroll(function () {
+                if ($(document).scrollTop() > 50) {
+                    $('.nav').addClass('affix');
+                    console.log("OK");
+                } else {
+                    $('.nav').removeClass('affix');
+                }
+            });
+        });
+
+    </script> <!-- End Landing Page -->
+
+
+    
+<!-- CaRD-->
+<div class="landing-page" id="AboutUs">
+    <div class="content">
+        <div class="container">
+            <div class="info">
+                <h1>Atlantic Warriors</h1>
+                <p>As Atlantic Warriors, we're on a mission to combat plastic pollution.<br> Powered by cutting-edge technologies like AI and image detection, <br>we're passionate about making a difference. <br>Our AI-driven platform detects plastic in images, empowering individuals and organizations to act against this global challenge.<br>
+                     We believe in the collective strength of small actions leading to profound change.<br> Together, we can preserve the beauty of our oceans, protect wildlife, and create a sustainable future for generations to come.<br> Join us in the fight for a cleaner, greener world.<br>                    
+                    <br> Let's turn the tide against plastic pollution, one image at a time.</p>
+                    <button class="btn"><a href="/predict" style="text-decoration: none; color:white;">Let's Detect</a></button>
+                </div>
+            <div class="image">
+                <img src="{{ url_for('static', filename='land_img.png') }}">
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .card a {
+        text-decoration: none;
+        /* Remove underline from anchor tags */
+        color: black
+    }
+
+    .card a:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+        /* Add any other styles you want for the hover effect */
+    }
+
+    .owl-dots {
+        display: none;
+    }
+
+    h2 {
+        color: #000000;
+        padding: 34px;
+        font-size: 35px;
+        font-family: none;
+    }
+</style>
+
+<section class="game-section" id="Services">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="about-title text-center">
+                <h2 class="title fw-bold">Our Services</h2>
+            </div>
+        </div>
+    </div>
+    <center>
+        <div class="owl-carousel custom-carousel owl-theme no-nav n0-owl-dots">
+            <div class="item active" style="background-image: url(/static/db_img.jpg);" href="/db">
+                <a href="/db">
+                    <div class="item-desc">
+                        <h3 style="  color: #f2f2f2;">Database</h3>
+                        <p>This shows the database from real time data collected from the drone.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="item" style="background-image: url(/static/obj_img.jpg);" href="/predict">
+                <a href="/predict">
+                    <div class="item-desc">
+                        <h3 style="  color: #f2f2f2;">Object Detection</h3>
+                        <p> This allow us to detect the plastic in the drone image.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="item" style="background-image: url(/static/Visualize.jpg);">
+                <a href="/visualize">
+                    <div class="item-desc">
+                        <h3 style="  color: #f2f2f2;">Visualize</h3>
+                        <p>Visualization of the data collected from the drone.</p>
+                    </div>
+                </a>
+            </div>
+    </center>
+</section>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".custom-carousel").owlCarousel({
+            items: 1,            // Show only one item at a time
+            loop: false,         // Disable looping
+            margin: 0,           // No margin between items
+            autoWidth: true      // Automatically adjust item width based on content
+        });
+
+        $(".custom-carousel .item").click(function () {
+            $(".custom-carousel .item").not($(this)).removeClass("active");
+            $(this).toggleClass("active");
+        });
+    });
+</script>
+
+<br> <br>
+
+ <!-- <br><br><br> -->
+    <!-- footer -->
+
+    <style>
+        .footer {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 1rem;
+        }
+        .info-container {
+            padding: 20px;
+        }
+        
+        h4 {
+            color: #f0f0f0;
+            font-size: 15px;
+        }
+        
+        ul, li {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+           
+        }
+        
+        ul li a {
+            color: black;
+            font-size: 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        ul li a:hover {
+            color: #fff;
+        }
+        
+        h3 {
+            color: #f0f0f0;
+        }
+        
+        address {
+            font-style: normal;
+            font-size: 15px;
+            color: #030303;
+        }
+        
+        .social-links a {
+            color: #bbb;
+            text-decoration: none;
+            margin-right: 15px;
+            font-size: 24px;
+        }
+        
+        .social-links a:hover {
+            color: #fff;
+        }
+        
+    </style>
+
+    
+<!--  Testimonials Section -->
+
+<div class="gtco-testimonials" id="Testimonials">
+    <h2>Testimonials</h2>
+    <div class="owl-carousel owl-carousel1 owl-theme">
+        <div>
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5>Nainil Patel <br />
+                    </h5>
+                    <p class="card-text">“I'm blown away by the simplicity and accuracy of this tool. I uploaded a photo, and within seconds, it pinpointed the plastic objects. Incredible!” </p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5>Kaushal<br />
+                    </h5>
+                    <p class="card-text">“I'm a photographer, and I often capture images of beautiful landscapes. This website helps me make sure those landscapes stay pristine by identifying plastic pollution.” </p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5>Yash Mori<br />
+                    </h5>
+                    <p class="card-text">“ As a nature enthusiast, I appreciate technology that aligns with our environment. This website not only identifies plastic but also raises awareness. Kudos! ” </p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5>Kaxit Pandya<br />
+                    </h5>
+                    <p class="card-text">“I work in sustainability, and this tool complements our efforts perfectly. It's a fantastic resource for businesses aiming to reduce plastic in their operations.” </p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5>Sakshi Vaghela<br />
+                    </h5>
+                    <p class="card-text">“ In a world overloaded with technology, it's refreshing to see it used for such a critical cause. Keep up the excellent work” </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ======= Team Section ======= -->
+<div class="container" id="team">
+    <center><h2>Our Team</h2></center>
+</div>
+
+<section id="team" class="team">
+    <div class="container">    <center>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="member">
+                    <img src="/static/sk.jpg" alt="">
+                    <h4 style="color: #000000">Mr.Sarthak Kapaliya</h4>
+                    <span>web developer</span>
+                    <!-- <p>
+                        "Any fool can write code that a computer can understand.Good programmers write code that humans
+                        can understand."
+                    </p> -->
+                    <div class="social">
+                        <a href="https://twitter.com/SarthakKapaliya?t=NFxwjUZSdC6BU3IU9vER2g&s=09"><i
+                                class="bi bi-twitter"></i></a>
+                        <a href="https://www.facebook.com/sarthak.kapaliya.5"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.instagram.com/invites/contact/?i=q4fvvffuzgc0&utm_content=g8q1tvc"><i
+                                class="bi bi-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/sarthak-kapaliya-2723bb202"><i
+                                class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="member">
+                    <img src="/static/vm.jpg" alt="">
+                    <h4 style="color: #000000;">Veerangi Mehta</h4>
+                    <span>algorithm writter</span>
+                    <!-- <p>
+                        "Java is to JavaScript what car is to Carpet."
+                    </p> -->
+                    <div class="social">
+                        <a href=""><i
+                                class="bi bi-twitter"></i></a>
+                        <a href=""><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.instagram.com/veerangi_mehta/"><i
+                                class="bi bi-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/veerangi-mehta-52a5661b9/"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div></center>
+
+    </div>
+</section><!-- End Team Section -->
+
+<div class="space" style="height: 100px;"></div>
+
+    <footer id="Contact">
+        <div class="waves">
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div class="wave" id="wave3"></div>
+            <div class="wave" id="wave4"></div>
+        </div>
+        <div class="info-container">
+            <div class="row">
+                <div class="col-md-2">
+                    <center>
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li><a href="/dashboard">Home</a></li>
+                        <li><a href="/log_about">About us</a></li>
+                        <li><a href="/log_team">Team</a></li>
+                        <li><a href="/log_Services">Our Services</a></li>
+                    </ul>
+                </center>
+                </div>
+                <div class="col-md-6">
+                    <center>
+                    <h3>Atlantic Warriors</h3>
+                    <br>
+                    <p style="color:black;">
+                        Detect, Defend, Restore: Our Mission to Safeguard Nature from Plastic Menace.
+                    </p>
+                </center>
+                </div>
+                <div class="col-md-4">
+                <center>
+                    <h3>Contact Us</h3>
+                    <address>
+                        Knowledge Corridor<br>
+                        Raisan Village<br>
+                        Gandhinagar - 382007<br>
+                        <strong>Phone:</strong> +91 7923275300<br>
+                        <strong>Email:</strong> <a href="mailto:ITAdmin@pdpu.ac.in" style="color: #000000;">ITAdmin@pdpu.ac.in</a><br>
+                    </address>
+                </center>
+                </div>
+                <div class="social-links mt-3">
+                    <center>
+                    <a href="https://twitter.com/sotpdpu?t=gF7fEcV4X_oLUK5AaEEQVQ&s=09" target="_blank"
+                        class="twitter"><i class="bx bxl-twitter"></i></a>
+                    <a href="https://www.facebook.com/SOT-pdpu-205008306201226/" target="_blank" class="facebook"><i
+                            class="bx bxl-facebook"></i></a>
+                    <a href="https://www.instagram.com/pdeuofficial/?utm_medium=copy_link" target="_blank"
+                        class="instagram"><i class="bx bxl-instagram"></i></a>
+                    <a href="https://www.linkedin.com/school/education-pdpu" target="_blank" class="linkedin"><i
+                            class="bx bxl-linkedin"></i></a>
+                        </center>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            "use strict";
+
+            var carousels = function () {
+                $(".owl-carousel1").owlCarousel({
+                    loop: true,
+                    center: true,
+                    margin: 0,
+                    responsiveClass: true,
+                    nav: false,
+                    responsive: {
+                        0: {
+                            items: 1,
+                            nav: false
+                        },
+                        680: {
+                            items: 2,
+                            nav: false,
+                            loop: false
+                        },
+                        1000: {
+                            items: 3,
+                            nav: true
+                        }
+                    }
+                });
+            };
+
+            (function ($) {
+                carousels();
+            })(jQuery);
+        })();
+
+    </script>
+    <!-- Ionicons Script -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

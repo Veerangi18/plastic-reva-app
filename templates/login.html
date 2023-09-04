@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/login_index.css"> <!-- Link to your CSS stylesheet -->
+    <link rel="stylesheet" href="/static/css/footer.css">
+    <link rel="stylesheet" href="/static/css/nav.css">
+
+
+    <title>Animated Forms</title>
+</head>
+
+<body>
+ 
+<nav class="nav" style="background-color: black; padding:0px">
+    <div class="container" style="max-width: 1500px;">
+        <div class="logo">
+            <a href="/" class="logo">Atlantic Warriors</a>
+        </div>
+        <div id="mainListDiv" class="main_list">
+            <ul class="navlinks">
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/Services">Our Services</a></li>
+                <li><a href="/Testimonials">Testimonials</a></li>
+                <li><a href="/team">Our Team</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+                <li><a href="/login_reg">Login/Register</a></li>
+                <!-- <li><a href="https://github.com/TheNobody-12/Plastic-Detection-Reva">Info</a></li> -->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <br><br>  
+    <br><br>  
+    <section class="forms-section">
+        <h1 class="section-title"></h1>
+        <div class="forms">
+            <div class="form-wrapper is-active">
+                <button type="button" class="switcher switcher-login">
+                    Login
+                    <span class="underline"></span>
+                </button>
+                <form class="form form-login" action="/login" method="POST">
+                    <fieldset>
+                        <legend>Please, enter your email and password for login.</legend>
+                        <div class="input-block">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                        </div>
+                        <div class="input-block">
+                            <label for="pwd">Password:</label>
+                            <input type="password" class="form-control" id="pwd" placeholder="Enter password"
+                                name="password">
+                        </div>
+
+                    </fieldset>
+                    <button type="submit" class="btn-login">Login</button>
+                </form>
+            </div>
+            <div class="form-wrapper">
+                <button type="button" class="switcher switcher-signup">
+                    Sign Up
+                    <span class="underline"></span>
+                </button>
+
+                <form class="form form-signup" action="/register" method="POST">
+                    <fieldset>
+                        <div class="input-block">
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+                        </div>
+
+                        <div class="input-block">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                        </div>
+
+                        <div class="input-block">
+                            <label for="pwd">Password:</label>
+                            <input type="password" class="form-control" id="pwd" placeholder="Enter password"
+                                name="password">
+                        </div>
+
+                        <button type="submit" class="btn-signup">Submit</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div class="space" style="height: 60px;"></div>
+
+    <script>
+        const switchers = [...document.querySelectorAll('.switcher')];
+
+        switchers.forEach(item => {
+            item.addEventListener('click', function () {
+                switchers.forEach(item => item.parentElement.classList.remove('is-active'));
+                this.parentElement.classList.add('is-active');
+            });
+        });
+    </script>
+
+
+        <style>  
+            /**
+             * Footer Styles
+             */
+            
+            .footer {
+              position: absolute;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              padding: 1rem;
+              background-color: #efefef;
+              text-align: center;
+            }
+    </style>
+    <br><br><br>  
+    <!-- <br><br><br><br>     -->
+              <footer>   
+
+                  <div class="waves">
+                      <div class="wave" id="wave1"></div>
+                      <div class="wave" id="wave2"></div>
+                      <div class="wave" id="wave3"></div>
+                      <div class="wave" id="wave4"></div>
+                  </div>
+                 
+              </footer>
+          
+              <!-- Ionicons Script-- > -->
+            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+
+</html>

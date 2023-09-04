@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}"> -->
+    <!-- <link rel="stylesheet" href="/static/css/footer.css"> -->
+    <link rel="stylesheet" href="/static/css/nav.css">
+
+    <!-- <link rel="stylesheet" href="path-to-your-owl-carousel-css/owl.carousel.min.css">
+    <link rel="stylesheet" href="path-to-your-owl-carousel-css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/static/css/tiles.css"> -->
+
+    <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> -->
+
+    <!-- ... Your existing head content ...
+    <script src="https://cdn.jsdelivr.net/npm/ol@v7.4.0/dist/ol.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.4.0/ol.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
+    <style>
+        #map {
+            height: 550px;
+            width: 750px;
+        }
+    </style>
+
+
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" /> 
+
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" href="/static/css/lineicons.css" />
+
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="/static/css/starter.css" />
+
+    <link rel="stylesheet" href="/static/css/about-01.css" />
+    <link rel="stylesheet" href="/static/css/upload.css" />
+
+
+    <!-- TEAM ASSET VENDOR JS -->
+    <!-- Google Fonts -->
+    <!-- <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet"> -->
+    <!-- Vendor CSS Files -->
+    <!-- <link href="/static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"> -->
+    <!-- Template Main CSS File -->
+    <!-- <link href="/static/css/style1.css" rel="stylesheet"> -->
+
+
+
+    <!-- Testimonials -->
+
+     
+    <!-- Your custom CSS styles -->
+    <style>
+      
+        /* Style the dropdown content (hidden by default) */
+.dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #000000;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Style the dropdown links */
+.dropdown .dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    color: black;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown .dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown menu when hovering over the "Our Services" link */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+    </style>
+</head>
+
+<body style="padding: 0.1px;">
+    <!-- Start Landing Page -->
+<nav class="nav" style="background-color: black; padding: 0px">
+    <div class="container" style="max-width: 1500px;">
+        <div class="logo">
+            <a href="/dashboard" class="logo">Atlantic Warriors</a>
+        </div>
+        <div id="mainListDiv" class="main_list">
+            <ul class="navlinks">
+                <li><a href="/log_about">About Us</a></li>
+                <li class="dropdown">
+                <a href="/log_Services">Our Services</a>
+                    <div class="dropdown-content">
+                        <a href="/db">Database</a>
+                        <a href="/predict">Detect Plastic</a>
+                        <a href="/visualize">Visualize</a>
+                    </div></li>
+                <li><a href="/log_Testimonials">Testimonials</a></li>
+                <li><a href="/log_team">Our Team</a></li>
+                <li><a href="/log_contact">Contact Us</a></li>
+                <li><a href="/login_reg">Login Out</a></li>
+                <!-- <li><a href="https://github.com/TheNobody-12/Plastic-Detection-Reva">Info</a></li> -->
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="space" style="height: 60px;"></div>
+
+
+
+
+    <!-- Jquery needed -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+
+    <!-- Function used to shrink nav bar removing paddings and adding black background -->
+    <script>
+        $(document).ready(function () {
+            $('.navTrigger').click(function () {
+                $(this).toggleClass('active');
+                console.log("Clicked menu");
+                $("#mainListDiv").toggleClass("show_list");
+                $("#mainListDiv").fadeIn();
+            });
+
+            $(window).scroll(function () {
+                if ($(document).scrollTop() > 50) {
+                    $('.nav').addClass('affix');
+                    console.log("OK");
+                } else {
+                    $('.nav').removeClass('affix');
+                }
+            });
+        });
+
+    </script> <!-- End Landing Page -->
+
+    <center>
+        <h1 style="margin: 50px 0px;">Object Detection</h1>
+    </center>
+    <!-- Upload Section -->
+    <!-- <div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    Upload Drone Image
+                </div>
+                <div class="card-body">
+                    <form id="uploadForm">
+                        <div class="form-group">
+                            <br><input type="file" idtype="submit" class="btn btn-primary" id="uploadInput"
+                                accept="image/*" required>
+                            <button idtype="submit" class="btn btn-primary" id="uploadInput">Upload</button>
+                            <br>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+    <!-- HTML content
+<div class="popup" id="popup">
+    <img src="" alt="Enlarged Image" id="popupImage">
+</div>
+<br> <br>
+Canvas
+<div class="canvas-container">
+    <canvas id="canvas"></canvas>
+</div> -->
+
+
+    <div id="updateButton"></div>
+
+
+  
+
+
+
+
+    <!-- <div id="objectTable"></div> -->
+
+    <center>
+        <h2>Upload a file</h2>
+        <p class="lead" style="font-size: 16px;text-align: center;">Upload your image to get the <b>Plastic Density</b></p><br>
+    </center>
+
+    <!-- Upload -->
+
+    <form id="file-upload-form" class="uploader">
+        <label class="up" for="file-upload">
+            <div id="file-drag">
+                <!-- <i class="fa fa-download" aria-hidden="true"></i> -->
+                <br>
+                <div id="notimage" class="hidden">Please select an image</div>
+                <!-- <br><input type="file" idtype="submit" class="btn btn-primary" id="uploadInput"
+                            accept="image/*" required> -->
+                <!-- <button idtype="submit" class="btn btn-primary" id="uploadInput">Upload</button> -->
+                <br>
+                <button class="btn btn-primary">
+                    <input type="file" id="file-upload" class="hidden"><br></button>
+                <p style="text-align: center;">or drop a file, paste an image or URL</p>
+            </div>
+        </label> <br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+        <div id="response" class="hidden">
+            <div id="messages"></div></label>
+            <progress class="progress" id="file-progress" value="0">
+                <span>0</span>%
+            </progress>
+        </div>
+    </form>
+
+    <ul class="tabs">
+        <li class="tab">
+            <input type="radio" name="tabs" checked="checked" id="tab1" />
+            <label class="tb" for="tab1">Detected Results</label>
+            <div id="tab-content1" class="content">
+                <!-- <div class="tab-content-left">
+                    <img src="https://blog.codepen.io/wp-content/uploads/2012/06/Button-Fill-Black-Large.png"
+                        width="100" />
+                </div> -->
+                <div class="popup" id="popup">
+                    <img src="" alt="Enlarged Image" id="popupImage">
+                </div>
+                <div class="tab-content-right">
+                    <h1 style="color: #ccc;">Detection Results</h1>
+                    <hr>
+                    <div class="canvas-container">
+                        <canvas id="canvas"></canvas>
+                    </div>
+                    <br>
+                    <span id="ImagePlasticCount"></span><br>
+                    <p style="font-size: 30px; color:white">Geolocation Of the Image</p>
+                    <div id="geolocation">
+                        <style>
+                            #latitude,
+                            #longitude {
+                                font-size: 15px;
+                                color: white;
+                            }
+
+                            #locationDiv h1 {
+                                font-size: 15px;
+                                color: white;
+                            }
+
+                        </style>
+                        <span id="latitude"></span><br>
+                        <span id="longitude"></span>
+                    </div>
+                    <p style="font-size: 30px; color:white">Location Details</p>
+                    <div id="locationDiv"></div>
+                </div>
+            </div>
+        </li>
+
+        <li class="tab">
+            <input type="radio" name="tabs" id="tab2" />
+            <label class="tb" for="tab2">Geoposition</label>
+            <div id="tab-content2" class="content">
+                <h1 style="color: #ccc;">Real Time Location</h1>
+                <center>
+                    <div id="map" style="width: 600px; height: 450px;"></div>
+                    <br> <br>
+                    <span id="ImagePlasticCount"></span><br>
+                    <button type="button" class="btn btn-success"> <a href="/db" style="color: rgb(255, 255, 255);"> Get
+                            Database</a> </button>
+                    <br> <br>
+                    <button type="button" class="btn btn-success"> <a href="/visualize" style="color: rgb(255, 255, 255);">
+                            Get
+                            Visualizations</a> </button>
+                </center>
+            </div>
+        </li>
+    </ul>
+
+    <br><br>
+    <style>
+        /* CSS for the pop-up */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        /* Flex container for centering */
+        .canvas-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Style for the canvas */
+        canvas {
+            max-width: 400px;
+            max-height: 100%;
+            border: 2px solid #000;
+        }
+    </style>
+
+    <br> <br>
+   
+
+
+    <script>
+        // JavaScript code for pop-up behavior
+        const canvas = document.getElementById("canvas");
+        const popup = document.getElementById("popup");
+        const popupImage = document.getElementById("popupImage");
+
+        canvas.addEventListener("click", () => {
+            const imgSrc = canvas.toDataURL(); // Get the image data from the canvas
+            popupImage.src = imgSrc; // Set the source of the pop-up image to the canvas image
+            popup.style.display = "flex"; // Display the pop-up
+        });
+
+        popup.addEventListener("click", () => {
+            popup.style.display = "none"; // Hide the pop-up when clicked outside the image
+        });
+
+    </script>
+    <script>
+        const map = L.map('map');
+        // Initializes map
+
+        map.setView([51.505, -0.09], 13);
+        // Sets initial coordinates and zoom level
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+        // Sets map data source and associates with map
+
+        let marker, circle, zoomed;
+    </script>
+    <script>
+        // File Upload
+        function ekUpload() {
+            function Init() {
+                console.log("Upload Initialised");
+
+                var fileSelect = document.getElementById('file-upload'),
+                    fileDrag = document.getElementById('file-drag'),
+                    submitButton = document.getElementById('submit-button');
+
+                document.getElementById('file-upload-btn').addEventListener('click', function () {
+                    fileSelect.click();
+                });
+
+                // Is XHR2 available?
+                var xhr = new XMLHttpRequest();
+                if (xhr.upload) {
+                    // File Drop
+                    fileDrag.addEventListener('dragover', fileDragHover, false);
+                    fileDrag.addEventListener('dragleave', fileDragHover, false);
+                    fileDrag.addEventListener('drop', fileSelectHandler, false);
+                }
+            }
+
+
+            function fileDragHover(e) {
+                var fileDrag = document.getElementById('file-drag');
+
+                e.stopPropagation();
+                e.preventDefault();
+
+                fileDrag.className = (e.type === 'dragover' ? 'hover' : 'modal-body file-upload');
+            }
+
+            function fileSelectHandler(e) {
+                // Fetch FileList object
+                var files = e.target.files || e.dataTransfer.files;
+
+                // Cancel event and hover styling
+                fileDragHover(e);
+
+                // Process all File objects
+                for (var i = 0, f; f = files[i]; i++) {
+                    parseFile(f);
+                    uploadFile(f);
+                }
+            }
+
+            // Output
+            function output(msg) {
+                // Response
+                var m = document.getElementById('messages');
+                m.innerHTML = msg;
+            }
+
+            function parseFile(file) {
+
+                console.log(file.name);
+                output(
+                    '<strong>' + encodeURI(file.name) + '</strong>'
+                );
+
+                // var fileType = file.type;
+                // console.log(fileType);
+                var imageName = file.name;
+
+                var isGood = (/\.(?=gif|jpg|png|jpeg)/gi).test(imageName);
+                if (isGood) {
+                    document.getElementById('start').classList.add("hidden");
+                    document.getElementById('response').classList.remove("hidden");
+                    document.getElementById('notimage').classList.add("hidden");
+                    // Thumbnail Preview
+                    document.getElementById('file-image').classList.remove("hidden");
+                    document.getElementById('file-image').src = URL.createObjectURL(file);
+                }
+                else {
+                    document.getElementById('file-image').classList.add("hidden");
+                    document.getElementById('notimage').classList.remove("hidden");
+                    document.getElementById('start').classList.remove("hidden");
+                    document.getElementById('response').classList.add("hidden");
+                    document.getElementById("file-upload-form").reset();
+                }
+            }
+
+            function setProgressMaxValue(e) {
+                var pBar = document.getElementById('file-progress');
+
+                if (e.lengthComputable) {
+                    pBar.max = e.total;
+                }
+            }
+
+            function updateFileProgress(e) {
+                var pBar = document.getElementById('file-progress');
+
+                if (e.lengthComputable) {
+                    pBar.value = e.loaded;
+                }
+            }
+
+            function uploadFile(file) {
+
+                var xhr = new XMLHttpRequest(),
+                    fileInput = document.getElementById('class-roster-file'),
+                    pBar = document.getElementById('file-progress'),
+                    fileSizeLimit = 1024; // In MB
+                if (xhr.upload) {
+                    // Check if file is less than x MB
+                    if (file.size <= fileSizeLimit * 1024 * 1024) {
+                        // Progress bar
+                        pBar.style.display = 'inline';
+                        xhr.upload.addEventListener('loadstart', setProgressMaxValue, false);
+                        xhr.upload.addEventListener('progress', updateFileProgress, false);
+
+                        // File received / failed
+                        xhr.onreadystatechange = function (e) {
+                            if (xhr.readyState == 4) {
+                                // Everything is good!
+
+                                // progress.className = (xhr.status == 200 ? "success" : "failure");
+                                // document.location.reload(true);
+                            }
+                        };
+
+                        // Start upload
+                        xhr.open('POST', document.getElementById('file-upload-form').action, true);
+                        xhr.setRequestHeader('X-File-Name', file.name);
+                        xhr.setRequestHeader('X-File-Size', file.size);
+                        xhr.setRequestHeader('Content-Type', 'multipart/form-data');
+                        xhr.send(file);
+                    } else {
+                        output('Please upload a smaller file (< ' + fileSizeLimit + ' MB).');
+                    }
+                }
+            }
+
+            // Check for the various File API support.
+            if (window.File && window.FileList && window.FileReader) {
+                Init();
+            } else {
+                document.getElementById('file-drag').style.display = 'none';
+            }
+        }
+        ekUpload();
+    </script>
+
+
+
+
+    <script>
+
+        const input = document.getElementById("file-upload");
+        const results = document.getElementById("result");
+        // const geolocationDiv = document.getElementById("geolocation");
+        const latitude = document.getElementById("latitude");
+        const longitude = document.getElementById("longitude");
+        const objectTableDiv = document.getElementById("objectTable");
+        const ImagePlasticCount = document.getElementById("ImagePlasticCount");
+
+
+
+
+        input.addEventListener("change", async (event) => {
+            const data = new FormData();
+            data.append("image_file", event.target.files[0], event.target.files[0].name);
+            const response = await fetch("/detect", {
+                method: "post",
+                body: data
+            });
+
+            fetch("/get_plastic_count/" + event.target.files[0].name)
+                .then(response => response.json())
+                .then(data => {
+                    // console.log("Response data:", data); // Check the data received from the Flask route
+                    ImagePlasticCount.innerHTML = 'Total Number of Plastic Objects: ' + data;
+                })
+                .catch(error => console.error("Error fetching data:", error));
+
+
+            const boxes = await response.json();
+            draw_image_and_boxes(event.target.files[0], boxes);
+
+
+            fetch(`/get_lat_lon/${event.target.files[0].name}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Response data:", data); // Check the data received from the Flask route
+
+                    // Update the HTML elements with latitude and longitude
+                    latitude.innerHTML = `Latitude: ${data[0]}`;
+                    longitude.innerHTML = `Longitude: ${data[1]}`;
+
+
+
+                    // Fetch location address using the latitude and longitude
+                    fetch(`/get_location/${data[0]}/${data[1]}`)
+                        .then(response => response.json())
+                        .then(locationData => {
+                            console.log("Location data:", locationData);
+                            // Display the location address on the webpage
+                            const locationDiv = document.getElementById("locationDiv");
+                            locationDiv.innerHTML = `<h1>Location: ${locationData.address}</h1>
+                                                <h1>Country: ${locationData.country}</h2>
+                                      <h1>Postal Code: ${locationData.postcode}</h2>`;
+                        })
+                        .catch(error => console.error("Error fetching location data:", error));
+
+                    document.getElementById('updateButton').addEventListener('click', updateMap(data[0], data[1]));
+
+                    function updateMap(latitude, longitude) {
+
+                        if (isNaN(latitude) || isNaN(longitude)) {
+                            alert("Please enter valid latitude and longitude values.");
+                            return;
+                        }
+
+                        if (marker) {
+                            map.removeLayer(marker);
+                            map.removeLayer(circle);
+                        }
+
+                        marker = L.marker([latitude, longitude]).addTo(map);
+                        circle = L.circle([latitude, longitude], { radius: 20 }).addTo(map);
+
+                        if (!zoomed) {
+                            zoomed = map.fitBounds(circle.getBounds());
+                        }
+
+                        map.setView([latitude, longitude]);
+                    }
+
+                })
+                .catch(error => console.error("Error fetching data:", error));
+
+            const databaseResponse = await fetch("/database");
+            if (databaseResponse.ok) {
+                const databaseData = await databaseResponse.json();
+                displayDatabaseData(databaseData);
+            }
+        });
+
+
+
+        function draw_image_and_boxes(file, boxes) {
+            const img = new Image()
+            img.src = URL.createObjectURL(file);
+            img.onload = () => {
+                const canvas = document.querySelector("canvas");
+                canvas.width = img.width;
+                canvas.height = img.height;
+                const ctx = canvas.getContext("2d");
+                ctx.drawImage(img, 0, 0);
+                ctx.strokeStyle = "#00FF00";
+                ctx.lineWidth = 3;
+                ctx.font = "18px serif";
+                boxes.forEach(([x1, y1, x2, y2, label]) => {
+                    ctx.strokeRect(x1, y1, x2 - x1, y2 - y1);
+                    ctx.fillStyle = "#00ff00";
+                    const width = ctx.measureText(label).width;
+                    ctx.fillRect(x1, y1, width + 10, 25);
+                    ctx.fillStyle = "#000000";
+                    ctx.fillText(label, x1, y1 + 18);
+                });
+            }
+        }
+    </script>
+
+    <!-- !-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <div class="space" style="height: 800px;"></div>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100&display=swap');
+
+/* 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: 100vh;
+  background: #333;
+  margin: 0;
+} */
+
+
+footer {
+  width: 100%;
+  position: absolute;
+  background: #3586ff;
+  min-height: 100px;
+  padding: 20px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+footer .social_icon, footer .menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+footer .social_icon li, footer .menu li {
+  list-style: none;
+}
+
+footer .social_icon li a {
+  font-size: 2em;
+  color: #ccc;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+}
+
+footer .social_icon li a:hover {
+  transform: translateY(-15px);
+  color: blue;
+}
+
+footer .menu li a {
+  font-size: 1.2em;
+  color: #ccc;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+  text-decoration: none;
+  opacity: 0.75;
+}
+
+footer .menu li a:hover {
+  opacity: 1;
+  color: #fff;
+}
+
+
+/* Footer CTA styles */
+.footer-cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+}
+
+.single-cta {
+  display: flex;
+  align-items: center;
+  padding-left: 150px; /* Adjust as needed */
+  padding-right: 150px; /* Adjust as needed */
+}
+
+.single-cta i {
+  color: #ff5e14;
+  font-size: 30px;
+  margin-right: 15px;
+}
+
+.cta-text {
+  display: inline-block;
+}
+
+.cta-text h4 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.cta-text span {
+  color: #fff;
+  font-size: 15px;
+}
+  
+/* Footer content styles */
+.footer-content {
+position: relative;
+z-index: 2;
+padding: 30px 15px; /* Add padding on left and right */
+}
+
+.footer-pattern img {
+position: absolute;
+top: 0;
+left: 0;
+height: 330px;
+background-size: cover;
+background-position: 100% 100%;
+}
+
+.footer-logo {
+margin-bottom: 30px;
+}
+
+.footer-logo img {
+  max-width: 200px;
+}
+
+.footer-text p {
+margin-bottom: 14px;
+font-size: 14px;
+color: #fff;
+line-height: 28px;
+}
+
+
+/* Wave and animation */
+footer .wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url(https://i.ibb.co/rZt4Nhg/wave.png);
+  background-size: 1000px 100px;
+}
+
+footer .wave#wave1 {
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWave 4s linear infinite;
+}
+
+footer .wave#wave2 {
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animateWave_02 4s linear infinite;
+}
+
+footer .wave#wave3 {
+  z-index: 1000;
+  opacity: 0.2;
+  bottom: 0;
+  animation: animateWave 3s linear infinite;
+}
+
+footer .wave#wave4 {
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animateWave_02 3s linear infinite;
+}
+
+@keyframes animateWave {
+  0% {
+    background-position-x: 1000px;
+  }
+  100% {
+    background-position-x: 0px;
+  }
+}
+
+@keyframes animateWave_02 {
+  0% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: 1000px;
+  }
+}
+</style>
+    
+    <footer>   
+
+        <div class="waves">
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div class="wave" id="wave3"></div>
+            <div class="wave" id="wave4"></div>
+        </div>
+       
+    </footer>
+
+    <!-- Ionicons Script-- > -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+
+</html>
