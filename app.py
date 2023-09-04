@@ -177,7 +177,7 @@ def intersection(box1,box2):
 
 
 # Array of YOLOv8 class labels
-yolo_classes = ["0"]
+yolo_classes = ["Plastic"]
 
 
 # function 3
@@ -202,10 +202,10 @@ def process_output(output, img_width, img_height):
         class_id = row[4:].argmax()
         label = yolo_classes[class_id]
         xc, yc, w, h = row[:4]
-        x1 = (xc - w/2) / 2176 * img_width
-        y1 = (yc - h/2) / 2176 * img_height
-        x2 = (xc + w/2) / 2176 * img_width
-        y2 = (yc + h/2) / 2176 * img_height
+        x1 = (xc - w/2) / 1088 * img_width
+        y1 = (yc - h/2) / 1088 * img_height
+        x2 = (xc + w/2) / 1088 * img_width
+        y2 = (yc + h/2) / 1088 * img_height
         boxes.append([x1, y1, x2, y2, label, prob])
 
     boxes.sort(key=lambda x: x[5], reverse=True)
@@ -225,7 +225,7 @@ def run_model(input):
     :param input: Numpy array in a shape (3,width,height)
     :return: Raw output of YOLOv8 network as an array of shape (1,84,8400)
     """
-    model = ort.InferenceSession("Phase2_TeamAtlanticModel.onnx")
+    model = ort.InferenceSession("Phase3_TeamAtlanticModel.onnx")
     outputs = model.run(["output0"], {"images":input})
     return outputs[0]
 
@@ -241,11 +241,11 @@ def prepare_input(buf):
     """
     img = Image.open(buf)
     img_width, img_height = img.size
-    img = img.resize((2176, 2176))
+    img = img.resize((1088, 1088))
     img = img.convert("RGB")
     input = np.array(img) / 255.0
     input = input.transpose(2, 0, 1)
-    input = input.reshape(1, 3, 2176, 2176)
+    input = input.reshape(1, 3, 1088, 1088)
     return input.astype(np.float32), img_width, img_height
 
 
