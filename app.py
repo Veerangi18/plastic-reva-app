@@ -151,8 +151,7 @@ def union(box1,box2):
     Function calculates union area of two boxes
     :param box1: First box in format [x1,y1,x2,y2,object_class,probability]
     :param box2: Second box in format [x1,y1,x2,y2,object_class,probability]
-    :return: Area of the boxes union as a
-Detect, Defend, Restore: Our Mission to Safeguard Nature from Plastic Menace. float number
+    :return: Area of the boxes union as a float number
     """
     box1_x1,box1_y1,box1_x2,box1_y2 = box1[:4]
     box2_x1,box2_y1,box2_x2,box2_y2 = box2[:4]
@@ -710,7 +709,7 @@ def log_Testimonials():
     return redirect(url_for('dashboard', _anchor='Testimonials'))
 
 def main():
-    app.run(debug=True,port = 8080)
+    app.run(debug=True,port = 80)
 
 if __name__ == "__main__":
     main()
